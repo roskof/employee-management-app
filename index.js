@@ -1,0 +1,23 @@
+import {EmployeeForm} from '@/components/employee-form';
+import {EmployeeUpsert} from '@/components/employe-upsert';
+import {EmployeeTable} from '@/components/employee-table';
+import {EmployeeList} from '@/components/employee-list';
+import {UpdateDeleteModal} from '@/components/update-delete-modal';
+import {Home} from '@/pages/home-page';
+import {AppHeader} from '@/components/app-header';
+import {FaIcon} from '@/components/custom-icon';
+import {AppPagination} from '@/components/app-pagination';
+import {EmployeePage} from '@/pages/employee-page';
+import {LanguageSelect} from '@/components/language-select';
+
+customElements.define('employee-form', EmployeeForm);
+customElements.define('employee-table', EmployeeTable);
+customElements.define('employee-list', EmployeeList);
+customElements.define('employee-upsert', EmployeeUpsert);
+customElements.define('update-delete-modal', UpdateDeleteModal);
+customElements.define('app-header', AppHeader);
+customElements.define('app-pagination', AppPagination);
+customElements.define('fa-icon', FaIcon);
+customElements.define('language-selection', LanguageSelect);
+customElements.define('employee-page', EmployeePage);
+customElements.define('home-page', Home);

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@ui": ["src/shared/ui"],
+      "@ui/*": ["src/shared/ui/*"],
+      "@utilities": ["src/shared/utilities"],
+      "@utilities/*": ["src/shared/utilities/*"],
+      "@widgets": ["src/widgets"],
+      "@widgets/*": ["src/widgets/*"],
+      "@entities": ["src/entities"],
+      "@entities/*": ["src/entities/*"],
+      "@features": ["src/features"],
+      "@features/*": ["src/features/*"],
+      "@": ["src"],
+      "@/*": ["src/*"]
+    }
+  }
+}

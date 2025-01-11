@@ -1,0 +1,52 @@
+{
+  "name": "employee-management-app",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "author": "Gürkan Çintesun",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint:check": "eslint \"**/*.js\" --debug",
+    "lint:write": "eslint \"**/*.js\" --fix",
+    "prettier:check": "prettier -c **/*.{js,html,css,json} --log-level \"debug\"",
+    "prettier:write": "prettier -w **/*.{js,html,css,json}",
+    "lint:staged": "lint-staged",
+    "prepare": "husky install",
+    "localize_extract": "npx lit-localize extract --config lit-localize.json",
+    "localize_build": "npx lit-localize build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@lit/localize-tools": "^0.8.0",
+    "@vitejs/plugin-legacy": "^6.0.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^9.14.0",
+    "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "jsdom": "^26.0.0",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8.4.28",
+    "prettier": "^3.0.2",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@lit/localize": "^0.12.2",
+    "@vaadin/router": "^2.0.0",
+    "immer": "^10.1.1",
+    "lit": "^3.2.1",
+    "vite-plugin-svgo": "^1.6.2",
+    "zustand": "^5.0.1"
+  },
+  "browserslist": [
+    ">0.5%",
+    "last 3 versions",
+    "supports es6-module",
+    "supports css-grid",
+    "not dead"
+  ]
+}
