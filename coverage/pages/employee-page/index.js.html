@@ -520,7 +520,6 @@ export class EmployeePage extends LitElement {
 &nbsp;
   handleModalActions = {
     openDelete: (e) =&gt; {
-      console.log("openDelete e=&gt;", e)
       this.selectedEmployeeId = e.detail.employeeId;
       this.showModal = true;
       this.modalMessage = 'deleted';
@@ -530,7 +529,6 @@ export class EmployeePage extends LitElement {
       this.showModal = false;
     },
     confirm: (e) =&gt; {
-      console.log("confirm e==&gt;", e)
       employeeStore.getState().removeEmployee(this.selectedEmployeeId);
       if (this.totalPages &lt; this.currentPage) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >        this.currentPage--;</span>
