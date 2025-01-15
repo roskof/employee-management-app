@@ -19,6 +19,8 @@ dist
 build
 package
 
+coverage
+
 #
 .env
 .env.*

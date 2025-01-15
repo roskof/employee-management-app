@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">68/68</span>
+            <span class="fraction">57/57</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -43,7 +43,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">68/68</span>
+            <span class="fraction">57/57</span>
           </div>
         </div>
         <p class="quiet">
@@ -127,29 +127,29 @@
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -160,6 +160,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
@@ -167,6 +168,7 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
@@ -184,33 +186,30 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { LitElement, html, css } from 'lit';
-import { styles } from './app-header.styles';
-import { msg, updateWhenLocaleChanges } from '@lit/localize';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {LitElement, html} from 'lit';
+import {styles} from './app-header.styles';
+import {msg, updateWhenLocaleChanges} from '@lit/localize';
 &nbsp;
 export class AppHeader extends LitElement {
   static styles = styles;
 &nbsp;
   static properties = {
-    currentPageName: { type: String },
-    additionalLinks: { type: Array },
-    showSearch: { type: Boolean },
-  }
+    currentPageName: {type: String},
+    additionalLinks: {type: Array},
+    showSearch: {type: Boolean},
+  };
 &nbsp;
   constructor() {
     super();
     this.showSearch = false;
     updateWhenLocaleChanges(this);
-&nbsp;
   }
 &nbsp;
   _toggleSearch(e) {
@@ -220,47 +219,48 @@ export class AppHeader extends LitElement {
 &nbsp;
   _handleSearch(e) {
     const searchQuery = e.target.value;
-    this.dispatchEvent(new CustomEvent('search-employee', {
-      detail: { searchQuery },
-      bubbles: true,
-      composed: true
-    }));
+    this.dispatchEvent(
+      new CustomEvent('search-employee', {
+        detail: {searchQuery},
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 &nbsp;
   render() {
     return html`
       &lt;header class="header"&gt;
         &lt;div class="left-section"&gt;
-          &lt;img src="/ing_logo.jpg" alt=${msg('ING Logo')} class="logo"&gt;
+          &lt;img src="/ing_logo.jpg" alt=${msg('ING Logo')} class="logo" /&gt;
           &lt;span class="title"&gt;ING&lt;/span&gt;
         &lt;/div&gt;
-        
+&nbsp;
         &lt;div class="right-section"&gt;
           &lt;a class="employees-link" @click=${this._toggleSearch}&gt;
             &lt;fa-icon icon="fa-solid fa-user"&gt;&lt;/fa-icon&gt;
             ${msg('Employees')}
           &lt;/a&gt;
           &lt;div class="search-container ${this.showSearch ? 'active' : ''}"&gt;
-            &lt;input 
-              type="text" 
-              class="search-input" 
+            &lt;input
+              type="text"
+              class="search-input"
               placeholder=${msg('Search employees...')}
               @input=${this._handleSearch}
-              @keyup=${this._handleSearch}
-            &gt;
+              @keyup=${this._handleSearch} /&gt;
           &lt;/div&gt;
           &lt;a href="/add" class="add-new-btn"&gt;
             &lt;fa-icon icon="fa-solid fa-plus"&gt;&lt;/fa-icon&gt;
             ${msg('Add New')}
           &lt;/a&gt;
-          
-            &lt;language-selection&gt;&lt;/language-selection&gt;
-            
+&nbsp;
+          &lt;language-selection&gt;&lt;/language-selection&gt;
         &lt;/div&gt;
       &lt;/header&gt;
     `;
   }
-}</pre></td></tr></table></pre>
+}
+&nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
       <!-- for sticky footer -->
@@ -269,7 +269,7 @@ export class AppHeader extends LitElement {
     <div class="footer quiet pad2 space-top1 center small">
       Code coverage generated by
       <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-      at 2025-01-11T19:50:46.143Z
+      at 2025-01-15T08:49:29.430Z
     </div>
     <script src="../../prettify.js"></script>
     <script>

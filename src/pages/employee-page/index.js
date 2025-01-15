@@ -1,17 +1,17 @@
-import { LitElement, html } from 'lit';
-import { Router } from '@vaadin/router';
-import { employeeStore } from '@/store/app-store.js';
-import { styles } from './employee-page.styles';
-import { updateWhenLocaleChanges } from '@lit/localize';
+import {LitElement, html} from 'lit';
+import {Router} from '@vaadin/router';
+import {employeeStore} from '@/store/app-store.js';
+import {styles} from './employee-page.styles';
+import {updateWhenLocaleChanges} from '@lit/localize';
 
 export class EmployeePage extends LitElement {
   static properties = {
-    employees: { type: Array },
-    currentPage: { type: Number },
-    itemsPerPage: { type: Number },
-    selectedEmployees: { type: Array },
-    viewMode: { type: String },
-    selectedEmployeeId: { type: String },
+    employees: {type: Array},
+    currentPage: {type: Number},
+    itemsPerPage: {type: Number},
+    selectedEmployees: {type: Array},
+    viewMode: {type: String},
+    selectedEmployeeId: {type: String},
   };
 
   static styles = styles;
@@ -56,11 +56,11 @@ export class EmployeePage extends LitElement {
   handleNavigation = {
     _handleAddEmployee: () => Router.go('/add'),
     _handleEditEmployee: (e) => {
-      const { employeeId } = e.detail;
+      const {employeeId} = e.detail;
       Router.go(`/edit/${employeeId}`);
     },
     _handleDeleteEmployee: (e) => {
-      const { employeeId } = e.detail;
+      const {employeeId} = e.detail;
       employeeStore.getState().removeEmployee(employeeId);
     },
     _handlePageChange: (e) => (this.currentPage = e.detail.page),
@@ -165,7 +165,7 @@ export class EmployeePage extends LitElement {
         </div>
 
         ${this.showModal
-        ? html`
+          ? html`
               <update-delete-modal
                 .employee=${this.employees.find((e) => e.id === this.selectedEmployeeId)}
                 .msg=${this.modalMessage}
@@ -173,7 +173,7 @@ export class EmployeePage extends LitElement {
                 @confirm=${this.handleModalActions.confirm}>
               </update-delete-modal>
             `
-        : ''}
+          : ''}
       </div>
     `;
   }

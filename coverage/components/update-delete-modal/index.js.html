@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">63/63</span>
+            <span class="fraction">50/50</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -43,7 +43,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">63/63</span>
+            <span class="fraction">50/50</span>
           </div>
         </div>
         <p class="quiet">
@@ -117,19 +117,7 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,19 +146,6 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -199,77 +174,66 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { LitElement, html, css } from 'lit';
-import { styles } from './update-delete-modal.styles';
-import { msg, str, updateWhenLocaleChanges } from '@lit/localize';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {LitElement, html} from 'lit';
+import {styles} from './update-delete-modal.styles';
+import {msg, str, updateWhenLocaleChanges} from '@lit/localize';
 &nbsp;
 export class UpdateDeleteModal extends LitElement {
-    static properties = {
-        employee: { type: Object },
-        msg: { type: String },
+  static properties = {
+    employee: {type: Object},
+    msg: {type: String},
+  };
+&nbsp;
+  static styles = styles;
+&nbsp;
+  constructor() {
+    super();
+    this.employee = {
+      firstName: '',
+      lastName: '',
+      employmentDate: '',
+      birthDate: '',
+      phone: '',
+      email: '',
+      department: '',
+      position: '',
     };
+    this.msg = '';
+    updateWhenLocaleChanges(this);
+  }
 &nbsp;
-    static styles = styles;
+  render() {
+    return html`
+      &lt;div class="modal"&gt;
+        &lt;div class="modal-header"&gt;
+          &lt;h3&gt;${msg('Are you sure?')}&lt;/h3&gt;
+          &lt;button class="cross" @click="${this._cancel}" aria-label=${msg('Close modal')}&gt;
+            &lt;fa-icon icon="fa-solid fa-xmark"&gt;&lt;/fa-icon&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+          ${msg(
+            str`Selected Employee record of ${this.employee?.firstName} ${this.employee?.lastName} will be ${this.msg}`
+          )}
+        &lt;/div&gt;
+        &lt;div class="modal-footer"&gt;
+          &lt;button class="btn proceed" @click="${this._confirm}"&gt;${msg('Proceed')}&lt;/button&gt;
+          &lt;button class="btn cancel" @click="${this._cancel}"&gt;${msg('Cancel')}&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    `;
+  }
 &nbsp;
-    constructor() {
-        super();
-        this.employee = {
-            firstName: '',
-            lastName: '',
-            employmentDate: '',
-            birthDate: '',
-            phone: '',
-            email: '',
-            department: '',
-            position: '',
-        };
-        this.msg = '';
-        updateWhenLocaleChanges(this);
-    }
+  _confirm() {
+    this.dispatchEvent(new CustomEvent('confirm'));
+  }
 &nbsp;
-    render() {
-        return html`
-            &lt;div class="modal"&gt;
-                &lt;div class="modal-header"&gt;
-                    &lt;h3&gt;${msg('Are you sure?')}&lt;/h3&gt;
-                    &lt;button 
-                        class="cross" 
-                        @click="${this._cancel}"
-                        aria-label=${msg('Close modal')}
-                    &gt;
-                        &lt;fa-icon icon="fa-solid fa-xmark"&gt;&lt;/fa-icon&gt;
-                    &lt;/button&gt;
-                &lt;/div&gt;
-                &lt;div class="modal-body"&gt;
-                ${msg(str`Selected Employee record of ${this.employee?.firstName} ${this.employee?.lastName} will be ${this.msg}`)}
-                    
-                &lt;/div&gt;
-                &lt;div class="modal-footer"&gt;
-                    &lt;button 
-                        class="btn proceed" 
-                        @click="${this._confirm}"
-                    &gt;
-                        ${msg('Proceed')}
-                    &lt;/button&gt;
-                    &lt;button 
-                        class="btn cancel" 
-                        @click="${this._cancel}"
-                    &gt;
-                        ${msg('Cancel')}
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        `;
-    }
-&nbsp;
-    _confirm() {
-        this.dispatchEvent(new CustomEvent('confirm'));
-    }
-&nbsp;
-    _cancel() {
-        this.dispatchEvent(new CustomEvent('cancel'));
-    }
-}</pre></td></tr></table></pre>
+  _cancel() {
+    this.dispatchEvent(new CustomEvent('cancel'));
+  }
+}
+&nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
       <!-- for sticky footer -->
@@ -278,7 +242,7 @@ export class UpdateDeleteModal extends LitElement {
     <div class="footer quiet pad2 space-top1 center small">
       Code coverage generated by
       <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-      at 2025-01-11T19:50:46.143Z
+      at 2025-01-15T08:49:29.430Z
     </div>
     <script src="../../prettify.js"></script>
     <script>

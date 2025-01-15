@@ -22,13 +22,9 @@ export const employeeStore = createStore(
       },
       editEmployee: (employee) => {
         set({
-          employee_list: [
-            ...get().employee_list.filter((emp) => emp.id !== employee.id),
-            {
-              id: employee.id,
-              ...employee,
-            },
-          ],
+          employee_list: get().employee_list.map((emp) =>
+            emp.id === employee.id ? {...employee} : emp
+          ),
         });
       },
       removeEmployee: (id) => {

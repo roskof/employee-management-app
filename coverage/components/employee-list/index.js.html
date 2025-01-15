@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">87/87</span>
+            <span class="fraction">94/94</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -43,7 +43,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">87/87</span>
+            <span class="fraction">94/94</span>
           </div>
         </div>
         <p class="quiet">
@@ -159,7 +159,15 @@
 <a name='L98'></a><a href='#L98'>98</a>
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,6 +193,8 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -204,14 +214,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
@@ -235,11 +253,9 @@
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
@@ -258,16 +274,16 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { LitElement, html, css } from 'lit';
-import { formatDate } from '@/utils/dateUtil.js';
-import { styles } from './employee-list.styles';
-import { msg, updateWhenLocaleChanges } from '@lit/localize';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {LitElement, html} from 'lit';
+import {formatDate} from '@/utils/dateUtil.js';
+import {styles} from './employee-list.styles';
+import {msg, updateWhenLocaleChanges} from '@lit/localize';
 &nbsp;
 export class EmployeeList extends LitElement {
   static properties = {
-    employees: { type: Array },
-    selectedEmployees: { type: Array },
+    employees: {type: Array},
+    selectedEmployees: {type: Array},
   };
 &nbsp;
   static styles = styles;
@@ -281,15 +297,17 @@ export class EmployeeList extends LitElement {
 &nbsp;
   _updateSelection(newSelected) {
     this.selectedEmployees = newSelected;
-    this.dispatchEvent(new CustomEvent('selection-change', {
-      detail: { selected: newSelected }
-    }));
+    this.dispatchEvent(
+      new CustomEvent('selection-change', {
+        detail: {selected: newSelected},
+      })
+    );
   }
 &nbsp;
   _handleRowClick(employeeId) {
     const isSelected = this.selectedEmployees.includes(employeeId);
     const newSelected = isSelected
-      ? this.selectedEmployees.filter(id =&gt; id !== employeeId)
+      ? this.selectedEmployees.filter((id) =&gt; id !== employeeId)
       : [employeeId];
 &nbsp;
     this._updateSelection(newSelected);
@@ -300,48 +318,54 @@ export class EmployeeList extends LitElement {
   }
 &nbsp;
   _handleEdit(employeeId) {
-    this.dispatchEvent(new CustomEvent('edit-employee', {
-      detail: { employeeId }
-    }));
+    this.dispatchEvent(
+      new CustomEvent('edit-employee', {
+        detail: {employeeId},
+      })
+    );
   }
 &nbsp;
   _handleDelete(employeeId) {
-    this.dispatchEvent(new CustomEvent('delete-employee', {
-      detail: { employeeId }
-    }));
+    this.dispatchEvent(
+      new CustomEvent('delete-employee', {
+        detail: {employeeId},
+      })
+    );
   }
 &nbsp;
   renderEmployeeItem(employee) {
     return html`
-      &lt;div class="employee-item ${this.selectedEmployees.includes(employee.id) ? 'selected' : ''}"
+      &lt;div
+        class="employee-item ${this.selectedEmployees.includes(employee.id) ? 'selected' : ''}"
         @click=${() =&gt; this._handleRowClick(employee.id)}&gt;
         &lt;div class="employee-details"&gt;
           &lt;div&gt;&lt;strong&gt;${employee.firstName} ${employee.lastName}&lt;/strong&gt;&lt;/div&gt;
           &lt;div&gt;${employee.position} - ${employee.department}&lt;/div&gt;
           &lt;div&gt;${msg('Email')}: ${employee.email} | ${msg('Phone')}: ${employee.phone}&lt;/div&gt;
-          &lt;div&gt;${msg('Date of Birth')}: ${formatDate(employee.birthDate)} | ${msg('Date of Employment')}: ${formatDate(employee.employmentDate)}&lt;/div&gt;
+          &lt;div&gt;
+            ${msg('Date of Birth')}: ${formatDate(employee.birthDate)} |
+            ${msg('Date of Employment')}: ${formatDate(employee.employmentDate)}
+          &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class="employee-actions"&gt;
           &lt;button
             class="edit-btn"
             @click=${(e) =&gt; {
-        e.stopPropagation();
-        this._handleActionClick(employee.id);
-        this._handleEdit(employee.id);
-      }}
-            aria-label=${msg('Edit employee')}
-          &gt;
+              e.stopPropagation();
+              this._handleActionClick(employee.id);
+              this._handleEdit(employee.id);
+            }}
+            aria-label=${msg('Edit employee')}&gt;
             &lt;fa-icon icon="fa-regular fa-pen-to-square"&gt;&lt;/fa-icon&gt;
           &lt;/button&gt;
           &lt;button
             class="delete-btn"
             @click=${(e) =&gt; {
-        e.stopPropagation();
-        this._handleActionClick(employee.id);
-        this._handleDelete(employee.id);
-      }}
-            aria-label=${msg('Delete employee')}
-          &gt;
+              e.stopPropagation();
+              this._handleActionClick(employee.id);
+              this._handleDelete(employee.id);
+            }}
+            aria-label=${msg('Delete employee')}&gt;
             &lt;fa-icon icon="fa-solid fa-trash"&gt;&lt;/fa-icon&gt;
           &lt;/button&gt;
         &lt;/div&gt;
@@ -353,13 +377,13 @@ export class EmployeeList extends LitElement {
     return html`
       &lt;div class="employee-list"&gt;
         ${this.employees.length === 0
-        ? html`&lt;div class="no-employees"&gt;${msg('No employees found')}&lt;/div&gt;`
-        : this.employees.map(emp =&gt; this.renderEmployeeItem(emp))
-      }
+          ? html`&lt;div class="no-employees"&gt;${msg('No employees found')}&lt;/div&gt;`
+          : this.employees.map((emp) =&gt; this.renderEmployeeItem(emp))}
       &lt;/div&gt;
     `;
   }
-}</pre></td></tr></table></pre>
+}
+&nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
       <!-- for sticky footer -->
@@ -368,7 +392,7 @@ export class EmployeeList extends LitElement {
     <div class="footer quiet pad2 space-top1 center small">
       Code coverage generated by
       <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-      at 2025-01-11T19:50:46.143Z
+      at 2025-01-15T08:49:29.430Z
     </div>
     <script src="../../prettify.js"></script>
     <script>
